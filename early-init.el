@@ -21,7 +21,7 @@
  default-frame-alist '((tool-bar-lines . 0)
                        (menu-bar-lines . 0)
                        (vertical-scroll-bars)
-                       (mouse-color . "blue")
+                       (undecorated-round . t)
                        (left-fringe . 8)
                        (right-fringe . 13)
                        (fullscreen . maximized))

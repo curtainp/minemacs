@@ -41,7 +41,7 @@
   (file-name-as-directory
    (or (getenv "MINEMACS_DIR")
        (getenv "MINEMACSDIR")
-       "~/.minemacs.d/"))
+       "~/.emacs.d/skel/"))
   "MinEmacs user customization directory.")
 
 (defconst minemacs-debug

@@ -35,6 +35,9 @@
     "wR" '(evil-window-rotate-upwards :wk "Rotate upwards")
     "w+" '(evil-window-increase-width :wk "Increase width")
     "w-" '(evil-window-decrease-width :wk "Decrease width"))
+  (+imap!
+    "C-a" '(beginning-of-line :wk "beginning of line")
+    "C-e" '(end-of-line :wk "end of line"))
 
   ;; Use `evil-search' instead of `isearch'
   (evil-select-search-module 'evil-search-module 'evil-search)

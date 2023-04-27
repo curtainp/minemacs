@@ -90,6 +90,7 @@
   :init
   (define-key minibuffer-local-map (kbd "C-r") #'consult-history)
   (define-key minibuffer-local-map (kbd "S-C-v") #'consult-yank-pop)
+  (define-key minibuffer-local-map (kbd "C-w") #'backward-kill-word)
   (global-set-key (kbd "C-s") #'consult-line)
   (+map!
     ;; buffer

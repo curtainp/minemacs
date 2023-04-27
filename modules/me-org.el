@@ -67,20 +67,6 @@
   (+nmap! :keymaps 'org-mode-map
     "RET" #'org-open-at-point)
 
-  (cond
-   ((executable-find "latexmk")
-    (setq
-     org-latex-pdf-process
-     '("latexmk -c -bibtex-cond1 %f" ; ensure cleaning ".bbl" files
-       "latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f")))
-
-   ;; Tectonic can be interesting. However, it don't work right now
-   ;; with some of my documents (natbib + sagej...)
-   ((executable-find "tectonic")
-    (setq
-     org-latex-pdf-process
-     '("tectonic -X compile --outdir=%o -Z shell-escape -Z continue-on-errors %f"))))
-
   (setq org-export-async-debug minemacs-debug) ;; Can be useful!
 
   ;; Dynamically change font size for Org heading levels, starting from
@@ -97,8 +83,8 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    (cl-loop
-    for lang in '(C R js dot awk sed sql org shell ditaa latex julia sqlite octave
-                  maxima eshell scheme python fortran gnuplot plantuml makefile)
+    for lang in '(C js dot awk sed sql org shell sqlite
+                  maxima eshell scheme python gnuplot plantuml makefile)
     collect (cons lang t)))
 
   (with-eval-after-load 'org-src
@@ -133,46 +119,6 @@
   :straight t
   :after org)
 
-;; Org export
-(use-package ox-latex
-  :after org
-  :custom
-  (org-latex-prefer-user-labels t)
-  ;; Default `minted` options, can be overwritten in file/dir locals
-  (org-latex-minted-options
-   '(("frame"         "lines")
-     ("fontsize"      "\\footnotesize")
-     ("tabsize"       "2")
-     ("breaklines"    "true")
-     ("breakanywhere" "true") ;; break anywhere, no just on spaces
-     ("style"         "default")
-     ("bgcolor"       "GhostWhite")
-     ("linenos"       "true")))
-  :config
-  ;; Add this to your config to be able to export with minted:
-  ;; (with-eval-after-load 'ox-latex
-  ;;   (add-to-list 'org-latex-packages-alist '("" "minted"))
-  ;;   (add-to-list 'org-latex-packages-alist '("svgnames" "xcolor"))
-  ;;   (setq org-latex-src-block-backend 'minted
-  ;;         org-latex-pdf-process '("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f")))
-
-  ;; Map some org-mode blocks' languages to lexers supported by minted
-  ;; you can see supported lexers by running this command in a terminal:
-  ;; 'pygmentize -L lexers'
-  (dolist (pair '((ipython    "python")
-                  (jupyter    "python")
-                  (scheme     "scheme")
-                  (lisp-data  "lisp")
-                  (conf-unix  "unixconfig")
-                  (conf-space "unixconfig")
-                  (authinfo   "unixconfig")
-                  (gdb-script "unixconfig")
-                  (conf-toml  "yaml")
-                  (conf       "ini")
-                  (gitconfig  "ini")
-                  (systemd    "ini")))
-    (unless (member pair org-latex-minted-langs)
-      (add-to-list 'org-latex-minted-langs pair))))
 
 (use-package ox-hugo
   :straight t

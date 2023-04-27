@@ -296,14 +296,14 @@ the children of class at point."
     "F" #'rust-goto-format-problem
     "S" #'rust-enable-format-on-save))
 
-(use-package cuda-mode
-  :straight t
-  :hook (cuda-mode . display-line-numbers-mode)
-  :hook (cuda-mode . hs-minor-mode))
+;; (use-package cuda-mode
+;;   :straight t
+;;   :hook (cuda-mode . display-line-numbers-mode)
+;;   :hook (cuda-mode . hs-minor-mode))
 
-(use-package opencl-mode
-  :straight t
-  :mode "\\.cl\\'")
+;; (use-package opencl-mode
+;;   :straight t
+;;   :mode "\\.cl\\'")
 
 (use-package dumb-jump
   :straight t
@@ -354,11 +354,11 @@ the children of class at point."
   :custom
   (lua-indent-level 2))
 
-(use-package hy-mode
-  :straight t)
+;; (use-package hy-mode
+;;   :straight t)
 
-(use-package powershell
-  :straight t)
+;; (use-package powershell
+;;   :straight t)
 
 (use-package franca-idl
   :straight (:host github :repo "zeph1e/franca-idl.el"))

@@ -19,7 +19,7 @@
         me-editor        ; Editing (yasnippet, smartparens, unicode-fonts, ligature, ...)
         ;; me-daemon        ; Emacs daemon tweaks
         me-undo          ; Better undoing (undo-fu, undo-fu-session, vundo, ...)
-        me-multi-cursors ; Multi-cursors editing (iedit, evil-mc, evil-iedit-state, ...)
+        ;; me-multi-cursors ; Multi-cursors editing (iedit, evil-mc, evil-iedit-state, ...)
         ;; me-vc            ; Version control (magit, forge, core-review, diff-hl, ...)
         me-project       ; Project management (project, consult-project-extra, ...)
         ;; obsolete/me-projectile ; Project management (projectile, consult-projectile, treemacs-projectile, ...)
